@@ -1,0 +1,16 @@
+/.Module.symvers.cmd
+/.cache
+/.kernel_vas.ko.cmd
+/.kernel_vas.mod.cmd
+/.kernel_vas.mod.o.cmd
+/.kernel_vas.o.cmd
+/.modules.order.cmd
+/.vscode
+/Module.symvers
+/compile_commands.json
+/kernel_vas.ko
+/kernel_vas.mod
+/kernel_vas.mod.c
+/kernel_vas.mod.o
+/kernel_vas.o
+/modules.order
