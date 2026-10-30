@@ -7,9 +7,16 @@
 #include <linux/printk.h>
 #include <linux/vmalloc.h>
 #include <asm/fixmap.h>
-#include <asm/page_types.h>
-#include <asm/pgtable_64_types.h>
+#include <asm/pgtable.h>
 
+#ifdef CONFIG_X86_64
+    #include <asm/page_types.h>
+    #include <asm/pgtable_64_types.h>
+#endif
+
+#ifdef CONFIG_ARM64
+    #include <asm/memory.h>
+#endif
 
 MODULE_AUTHOR("Chris Martinez");
 MODULE_DESCRIPTION("Display the kernel's virtual address space (x86-64)");
@@ -60,7 +67,7 @@ void display_kernel_addr_space(void) {
     pr_info("Start: %px    End: %px    Size: %lu\n",
             (void*)MODULES_VADDR,
             (void*)MODULES_END,
-            MODULES_LEN);
+            MODULES_END - MODULES_VADDR);
 
     // Calculate KASAN region
     #ifdef CONFIG_KASAN
